@@ -1,0 +1,32 @@
+<nav>
+  <a href="#" class="nav-icon">
+    <img src="assets/images/angular-logo.png" alt="logo angular">
+    <span>AnguShop</span>
+  </a>
+  <div class="main-navlinks">
+    <button class="hamburger" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links-container">
+      <a href="#" (mouseover)="isHover = true"  (mouseleave)="isHover = false" >
+        <span>home</span>
+        <span class="underline" [@dimBox]="isHover ? 'dimmed' : 'notDimmed'">a</span>
+      </a>
+      <a href="#">test1</a>
+      <a href="#">tes2</a>
+      <a href="#">test3</a>
+    </div>
+
+  </div>
+  <div class="nav-authentication">
+    <a href="#" class="user-toggler">
+      <img src="assets/images/profile.png" alt="user icon">
+    </a>
+    <div class=""sign-btns>
+      <button type="button">Sign In</button>
+      <button type="button">Sign Up</button>
+    </div>
+  </div>
+</nav>
