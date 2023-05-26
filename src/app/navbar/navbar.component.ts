@@ -1,28 +1,41 @@
 import { Component } from '@angular/core';
-import {animate, state, style, trigger,transition} from "@angular/animations";
+import {animate, state, style, trigger, transition, query} from "@angular/animations";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  animations: [
-    trigger('dimBox', [
-      state('notDimmed',
-        style({ transform: 'scale(0)'})
-      ),
-      state('dimmed',
-        style({  transform: 'scale(1)' })
-      ),
-      transition('notDimmed => dimmed', [
-        animate('0.5s')
+  animations:[
+    trigger('burgerButton',[
+      transition('open => close',[
+        query('.hamburger,:nth-child(1)',animate(1000, style({ transform: 'translateX(5px)' }))),
+        query('.hamburger,:nth-child(2)',animate(1000, style({ transform: 'translateX(5px)' }))),
+        query('.hamburger,:nth-child(3)',animate(1000, style({ transform: 'translateX(5px)' }))),
+
       ]),
-      transition('dimmed => notDimmed', [
-        animate('1s')
+      transition('close => open',[
+        query('.hamburger,:nth-child(1)',animate(1000, style({ transform: 'translateX(-5px)' }))),
+        query('.hamburger,:nth-child(2)',animate(1000, style({ transform: 'translateX(-5px)' }))),
+        query('.hamburger,:nth-child(3)',animate(1000, style({ transform: 'translateX(-5px)' }))),
+
       ])
     ])
+
+
+
   ]
 })
 export class NavbarComponent {
-  isHover = false;
+  list_button=[
+    {'name':"Button1", _id:1},
+    {'name':"Button2", _id:2},
+    {'name':"Button3", _id:3},
+    {'name':"Button4", _id:4},
+  ];
+
+  burgerButtonOpen = 'open';
+  goAnimate() {
+    this.burgerButtonOpen =this.burgerButtonOpen == 'open'?'close'  ;
+  }
 
 }

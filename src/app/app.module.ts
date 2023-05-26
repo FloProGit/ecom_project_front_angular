@@ -7,11 +7,13 @@ import {HomeModule} from "./home/home.module";
 import {ProductsModule} from "./products/products.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhover.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    ButtonhoverComponent
   ],
   imports: [
     BrowserModule,
