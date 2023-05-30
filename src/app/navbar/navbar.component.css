@@ -1,0 +1,137 @@
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #fafafa;
+  box-shadow: inset 0px -1px 0px #c5c5c6;
+}
+
+.nav-icon {
+  align-items: center;
+  display: flex;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav-icon img {
+  width: 40px;
+  transform: rotate(-17deg) translate(5px);
+  margin-right: 10px;
+}
+
+.nav-authentication {
+  margin-left: auto;
+}
+
+.hamburger {
+  display: none;
+}
+
+.sign-btns button {
+  font-family: Roboto Flex, sans-serif;
+  font-size: 16px;
+  min-width: 90px;
+  padding: 10px 0px;
+  margin: 0px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.user-toggler {
+  display: none;
+}
+.user-toggler img {
+  width: 30px;
+}
+.sign-btns button:nth-child(2) {
+  border: none;
+  background: rgba(146, 195, 238, 0.72);
+}
+
+
+.nav-links-container {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #414141;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 15px 20px;
+    position: relative;
+  }
+
+  .nav-icon {
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .main-navlinks {
+    order: 1;
+  }
+
+  .nav-authentication {
+    order: 3;
+  }
+
+  .nav-icon span {
+    font-size: 22px;
+  }
+
+  /*hamburger*/
+  .nav-links-container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fafafa;
+    position :absolute;
+    top: 100%;
+    left: 0;
+    height: 100vh;
+    border-right: 1px solid #c5c5c6;
+    /*transform: translate(-100%);*/
+    padding: 15px 20px;
+  }
+  .hamburger {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    background: #fafafa;
+    align-items: center;
+    position: relative;
+  }
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    pointer-events: none;
+  }
+
+
+  .sign-btns {
+    display: none;
+  }
+
+  .user-toggler {
+    display: block;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+

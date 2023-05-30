@@ -1,0 +1,25 @@
+<nav>
+  <a href="#" class="nav-icon">
+    <img src="assets/images/angular-logo.png" alt="logo angular">
+    <span>AnguShop</span>
+  </a>
+  <div class="main-navlinks">
+    <button class="hamburger" (click)="goAnimate()"  type="button">
+      <span [@burgerButtonSpan1]="burgerButtonOpen" ></span>
+      <span [@burgerButtonSpan2]="burgerButtonOpen"></span>
+      <span [@burgerButtonSpan3]="burgerButtonOpen"></span>
+    </button>
+      <div class="nav-links-container" [@burgerMenu]="burgerButtonOpen" >
+        <app-buttonhover name="{{button.name}}" *ngFor="let button of list_button; let i = index" ></app-buttonhover>
+      </div>
+  </div>
+  <div class="nav-authentication">
+    <a href="#" class="user-toggler">
+      <img src="assets/images/profile.png" alt="user icon">
+    </a>
+    <div class="sign-btns">
+      <button type="button">Sign In</button>
+      <button type="button">Sign Up</button>
+    </div>
+  </div>
+</nav>
