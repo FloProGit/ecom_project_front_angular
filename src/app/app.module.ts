@@ -13,7 +13,7 @@ import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhove
   declarations: [
     AppComponent,
     NavbarComponent,
-    ButtonhoverComponent
+    ButtonhoverComponent,
   ],
   imports: [
     BrowserModule,
