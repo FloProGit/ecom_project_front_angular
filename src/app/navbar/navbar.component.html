@@ -4,12 +4,12 @@
     <span>AnguShop</span>
   </a>
   <div class="main-navlinks">
-    <button class="hamburger" (click)="" [@burgerButton]="burgerButtonOpen" type="button">
-      <span class="span1"></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger" (click)="goAnimate()"  type="button">
+      <span [@burgerButtonSpan1]="burgerButtonOpen" ></span>
+      <span [@burgerButtonSpan2]="burgerButtonOpen"></span>
+      <span [@burgerButtonSpan3]="burgerButtonOpen"></span>
     </button>
-      <div class="nav-links-container" >
+      <div class="nav-links-container" [@burgerMenu]="burgerButtonOpen" >
         <app-buttonhover name="{{button.name}}" *ngFor="let button of list_button; let i = index" ></app-buttonhover>
       </div>
   </div>
