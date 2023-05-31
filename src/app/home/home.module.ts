@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import {AppRoutingModule} from "../app-routing.module";
 import {RouterModule} from "@angular/router";
 import { CurrentProductsComponent } from './components/current-products/current-products.component';
 import {ImagesCarouselComponent} from "../coreComponents/images-carousel/images-carousel.component";
+import {ImageCarouselDirective} from "../coreDirective/image-carousel.directive";
+import {CarouselItemElementDirective} from "../coreDirective/carousel-item-element.directive";
 
 
 
@@ -12,7 +13,9 @@ import {ImagesCarouselComponent} from "../coreComponents/images-carousel/images-
   declarations: [
     HomeComponent,
     CurrentProductsComponent,
-    ImagesCarouselComponent
+    ImagesCarouselComponent,
+    ImageCarouselDirective,
+    CarouselItemElementDirective
   ],
   imports: [
     CommonModule,

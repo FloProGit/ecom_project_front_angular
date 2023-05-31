@@ -1,21 +1,22 @@
-<div *ngIf="urlImage && urlImage.length > 0" class="carousel-container">
-  <img *ngFor="let image of urlImage; let i = index"
-       [src]="image" alt="patate"
-       [ngClass]="{'image-active': selectedIndex === i}"
-       class="fade"
-  >
+<div class="carousel-container ">
+  <div class="carousel-item-container" #carousel>
+    <div *ngFor="let image of urlImage; let i = index" class="carousel-item">
+      <ng-container [ngTemplateOutlet]="image.tpl"></ng-container>
+    </div>
+  </div>
+
   <div *ngIf="indicator" class="carousel-dot-container">
-    <span *ngFor="let dot of urlImage; let i=index"
-    class="dot"
+    <span *ngFor="let dot of arrayOfCarousel; let i=index"
+          class="dot"
           [ngClass]="{'active':selectedIndex === i}"
           (click)="selectImage(i)"
     >
     </span>
   </div>
-  <button *ngIf="controls && urlImage && urlImage.length > 0" class="btn-carousel btn-prev" (click)="onPrevClick()">
-    <i class="dot" ></i>
+  <button *ngIf="controls " class="btn-carousel btn-prev" (click)="onPrevClick()">
+    <i class="dot"></i>
   </button>
-  <button *ngIf="controls && urlImage && urlImage.length > 0" class="btn-carousel btn-next" (click)="onNextClick()">
-    <i class="dot" ></i>
+  <button *ngIf="controls " class="btn-carousel btn-next" (click)="onNextClick()">
+    <i class="dot"></i>
   </button>
 </div>

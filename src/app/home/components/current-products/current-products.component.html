@@ -1,3 +1,13 @@
 <div>
-<app-images-carousel></app-images-carousel>
+<app-images-carousel>
+  <ng-container *ngFor="let image of urlImage; let i = index">
+    <ng-container *ImageCarousel>
+        <img
+             [src]="image" alt="patate"
+        >
+    </ng-container>
+  </ng-container>
+
+
+</app-images-carousel>
 </div>

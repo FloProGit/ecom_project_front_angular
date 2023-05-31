@@ -10,19 +10,21 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhover.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    ButtonhoverComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    ProductsModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        ButtonhoverComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HomeModule,
+        ProductsModule,
+        BrowserAnimationsModule
+    ],
+    providers: [],
+    exports: [
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

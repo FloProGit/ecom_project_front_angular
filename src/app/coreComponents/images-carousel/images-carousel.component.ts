@@ -1,22 +1,49 @@
-import {Component, Input} from '@angular/core';
-
+import {
+  AfterViewInit,
+  Component,
+  ContentChildren,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
+import {ImageCarouselDirective} from "../../coreDirective/image-carousel.directive";
+import {CarouselItemElementDirective} from "../../coreDirective/carousel-item-element.directive";
+import {animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style} from "@angular/animations";
 @Component({
   selector: 'app-images-carousel',
   templateUrl: './images-carousel.component.html',
   styleUrls: ['./images-carousel.component.css']
 
 })
-export class ImagesCarouselComponent {
+export class ImagesCarouselComponent implements AfterViewInit{
   selectedIndex = 0;
   @Input() indicator = true;
   @Input() controls = true;
-  @Input() autoSlide = false;
+  @Input() autoSlide = true;
   @Input() slideInterval = 3000;
+  public arrayOfCarousel !:ImageCarouselDirective[];
+  private player!: AnimationPlayer;
+  @ContentChildren(ImageCarouselDirective) urlImage!:QueryList<ImageCarouselDirective>;
+  @ViewChildren(CarouselItemElementDirective) itemsElement!:QueryList<ElementRef>;
+  @ViewChild('carousel') private carousel!: ElementRef;
+  constructor(private builder:AnimationBuilder) {
+  }
+  ngAfterViewInit() {
+    this.arrayOfCarousel = this.urlImage.toArray();
+    this.urlImage.reset([this.arrayOfCarousel[0]]) ;
+  }
   ngOnInit(){
     if(this.autoSlide)
     {
       this.autoSlideImages();
     }
+  }
+
+  private buildAnimation( timer :string|null,offset : number) :AnimationFactory{
+
+     return this.builder.build(animate(timer == null?'1s ease-out':timer,style({transform: `translateX(${offset}px)` })))
   }
 
   autoSlideImages():void
@@ -28,24 +55,58 @@ export class ImagesCarouselComponent {
   selectImage(index:number){
     this.selectedIndex = index;
   }
-  urlImage = [
-    'https://www.shutterstock.com/image-photo/young-potato-isolated-on-white-260nw-1029398878.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlf7rt4LggmhXjxPu0HfHXD91YYKqMel7VlLdZ5yXIC9cqyiMTC1DepsGe2WT8RZuVfoU&usqp=CAU',
-    'https://st3.depositphotos.com/29384342/33978/i/450/depositphotos_339784130-stock-photo-vegetables-food-concept-potatoes.jpg'
-  ]
 
+  getIndex(direction:number):number
+  {
+    let sign:string = direction + Math.abs(direction) > 0 ? 'pos':'neg';
+    let result : number =0;
+    console.log(sign);
+    switch (sign){
+      case 'pos' :{ result =(this.selectedIndex + direction) % this.arrayOfCarousel.length;break}
+      case 'neg' :{ result =(this.selectedIndex + direction + this.arrayOfCarousel.length) % this.arrayOfCarousel.length;break}
+    }
+    return result;
+  }
  onPrevClick():void
  {
-   this.selectedIndex--
-   if(this.selectedIndex < 0){
-     this.selectedIndex = this.urlImage.length-1
-   }
+   this.selectedIndex = this.getIndex(-1)
+
+   let arr: ImageCarouselDirective[] = this.urlImage.toArray();
+   let last:ImageCarouselDirective = this.arrayOfCarousel[this.selectedIndex]!;
+   arr = [last].concat(arr);
+   this.urlImage.reset(arr)
+
+   this.player = this.buildAnimation('0s',-700).create(this.carousel.nativeElement);
+   this.player.play();
+   let slideAnimation = this.buildAnimation(null,0).create(this.carousel.nativeElement);
+   slideAnimation.play();
+   slideAnimation.onDone(()=>{
+     let last:ImageCarouselDirective = this.arrayOfCarousel[this.selectedIndex]!;
+     this.urlImage.reset([last])
+     this.player = this.buildAnimation('0s',0).create(this.carousel.nativeElement);
+     this.player.play();
+   })
  }
   onNextClick():void
   {
-    this.selectedIndex++
-    if(this.selectedIndex > this.urlImage.length-1){
-      this.selectedIndex = 0
-    }
+
+    this.selectedIndex = this.getIndex(1)
+
+    let arr: ImageCarouselDirective[] = this.urlImage.toArray();
+    let first:ImageCarouselDirective = this.arrayOfCarousel[this.selectedIndex]!;
+    arr = arr.concat(first);
+    this.urlImage.reset(arr)
+
+    this.player = this.buildAnimation('0s',0).create(this.carousel.nativeElement);
+    this.player.play();
+    let slideAnimation = this.buildAnimation(null,-700).create(this.carousel.nativeElement);
+    slideAnimation.play();
+    slideAnimation.onDone(()=>{
+      let last:ImageCarouselDirective = this.arrayOfCarousel[this.selectedIndex]!;
+      this.urlImage.reset([last])
+      this.player = this.buildAnimation('0s',0).create(this.carousel.nativeElement);
+      this.player.play();
+    })
+
   }
 }
