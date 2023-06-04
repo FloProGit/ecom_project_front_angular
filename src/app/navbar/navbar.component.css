@@ -7,6 +7,7 @@ nav {
   padding: 15px 25px;
   background-color: #fafafa;
   box-shadow: inset 0px -1px 0px #c5c5c6;
+  max-height: 72px;
 }
 
 .nav-icon {
