@@ -17,9 +17,19 @@
     <a href="#" class="user-toggler">
       <img src="assets/images/profile.png" alt="user icon">
     </a>
-    <div class="sign-btns">
-      <button type="button">Sign In</button>
-      <button type="button">Sign Up</button>
-    </div>
+    <div  *ngIf="islogged();then logged ;else Notlogged"> </div>
+      <ng-template #Notlogged>
+        <div class="sign-btns">
+          <a  routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Sign In</a>
+          <a routerLink="/register">Sign Up</a>
+        </div>
+
+      </ng-template>
+      <ng-template #logged>
+        <div class="sign-btns">
+        <a (click)="logout()">Logout</a>
+        </div>
+      </ng-template>
+
   </div>
 </nav>

@@ -1,5 +1,6 @@
 import {Component, ElementRef, HostListener} from '@angular/core';
 import {animate, state, style, trigger, transition, query} from "@angular/animations";
+import {TokenService} from "../coreService/token.service";
 
 @Component({
   selector: 'app-navbar',
@@ -34,6 +35,13 @@ import {animate, state, style, trigger, transition, query} from "@angular/animat
 })
 
 export class NavbarComponent {
+
+
+  constructor( private tokenService:TokenService) {
+
+  }
+
+  islogged = ()=>{ return this.tokenService.isLogged() };
   list_button = [
     {'name': "Button1", _id: 1},
     {'name': "Button2", _id: 2},
@@ -56,7 +64,11 @@ export class NavbarComponent {
 
   goAnimate() {
     this.burgerButtonOpen = this.burgerButtonOpen == 'open' ? 'close' : 'open';
-    console.log(this.burgerButtonOpen)
+  }
+
+  logout()
+  {
+    this.tokenService.clearToken();
   }
 
 }

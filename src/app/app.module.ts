@@ -8,6 +8,8 @@ import {ProductsModule} from "./products/products.module";
 import { NavbarComponent } from './navbar/navbar.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhover.component';
+import {AuthModule} from "./auth/auth.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhove
         AppRoutingModule,
         HomeModule,
         ProductsModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        AuthModule,
+      HttpClientModule
     ],
     providers: [],
     exports: [
