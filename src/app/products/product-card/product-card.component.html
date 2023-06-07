@@ -1,0 +1,15 @@
+<div class="card-item">
+  <div class="card">
+    <div class="card-image">
+      <img [src]="image" alt="">
+    </div>
+    <div class="card-description">
+      <a routerLink="/product/{{product.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">{{product.name}}</a>
+
+    </div>
+
+    <div class="btn">
+      <button>Buy</button>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,10 @@ export class TokenService {
   storeToken(token_access : IToken)
   {
       localStorage.setItem('token',token_access.token)
-      this.router.navigate(['/'])
+  }
+  getToken()
+  {
+    return localStorage.getItem('token');
   }
 
   isLogged(): boolean{

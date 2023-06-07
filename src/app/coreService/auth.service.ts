@@ -15,8 +15,20 @@ export class AuthService {
   {
     const url = '/api/login_check';
     const config = {
-      headers:{"Content-Type": "application/json"}
+      headers:{
+        "Content-Type": "application/json",
+      }
     };
         return  await axios.post<IToken>(url,credential,config);
+  }
+
+
+  async Register(credential :ICredential) : Promise<AxiosResponse<IToken>>
+  {
+    const url = '/api/register';
+    const config = {
+      headers:{"Content-Type": "application/json"}
+    };
+    return  await axios.post<IToken>(url,credential,config);
   }
 }

@@ -1,1 +1,23 @@
-<p>register works!</p>
+<div>
+  <form
+    name="login_form"
+    #f="ngForm"
+    (ngSubmit)="f.form.valid && onSubmit()"
+  >
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" [(ngModel)]="form.name" #name="ngModel">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" [(ngModel)]="form.username" #email="ngModel">
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="password" name="password" id="password" [(ngModel)]="form.password" #password="ngModel">
+    </div>
+    <div>
+      <button>Login</button>
+    </div>
+  </form>
+</div>

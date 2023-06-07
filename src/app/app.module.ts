@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ButtonhoverComponent } from './navbar/Components/buttonhover/buttonhover.component';
 import {AuthModule} from "./auth/auth.module";
 import {HttpClientModule} from "@angular/common/http";
+import {CartModule} from "./cart/cart.module";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import {HttpClientModule} from "@angular/common/http";
         ProductsModule,
         BrowserAnimationsModule,
         AuthModule,
-      HttpClientModule
+      CartModule,
     ],
     providers: [],
     exports: [

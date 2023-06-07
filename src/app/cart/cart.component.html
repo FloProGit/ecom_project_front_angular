@@ -1,0 +1,20 @@
+
+<div class="cart-container">
+
+  <div class="card-product-list">
+    <div class="card-product-item" *ngFor="let product of products; let i = index">
+      <img [src]="'https://127.0.0.1:8000/download/images/'+product.url_link" alt="">
+      {{product.name}}
+      <button (click)="addItem(product.id)">+</button>
+      <button (click)="removeOne(product.id)">-</button>
+    </div>
+
+  </div>
+  <div class="card-price">
+
+  </div>
+  <div class="btns">
+    <button (click)="command()">command</button>
+    <button (click)="clearCart()">clear cart</button>
+  </div>
+</div>

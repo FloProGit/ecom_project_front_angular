@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="name">
+    <button (click)="updateName()">Update</button>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" [(ngModel)]="email">
+    <button (click)="updateEmail()">Update</button>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="password">
+    <button (click)="updatePassword()">Update</button>
+  </div>
+  <button (click)="deleteUser()" >Delete</button>
+</div>
+

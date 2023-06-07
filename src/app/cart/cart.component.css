@@ -1,0 +1,22 @@
+.card-product-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-product-item {
+  display: flex;
+  margin-top: 2px;
+  align-items: center;
+}
+.card-product-item img{
+  height: 100px;
+  border-radius: 10px;
+}
+.card-product-item button{
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 4px;
+  margin-right: 4px;
+}

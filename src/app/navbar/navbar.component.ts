@@ -43,10 +43,7 @@ export class NavbarComponent {
 
   islogged = ()=>{ return this.tokenService.isLogged() };
   list_button = [
-    {'name': "Button1", _id: 1},
-    {'name': "Button2", _id: 2},
-    {'name': "Button3", _id: 3},
-    {'name': "Button4", _id: 4},
+    {'name': "Products",'route':"/products" ,_id: 1},
   ];
   burgerButtonOpen = 'close';
 

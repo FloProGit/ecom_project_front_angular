@@ -21,5 +21,6 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 })
 export class ButtonhoverComponent {
   isHover = false;
-  @Input() name = '';
+  @Input() name :string = '';
+  @Input() route :string = '';
 }

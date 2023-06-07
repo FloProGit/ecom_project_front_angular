@@ -25,6 +25,15 @@ nav {
 
 .nav-authentication {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.nav-authentication .cart-img{
+  margin-right: 15px ;
+}
+.nav-authentication .cart-img img{
+  padding-top: 4px;
+  width: 30px;
 }
 
 .hamburger {
