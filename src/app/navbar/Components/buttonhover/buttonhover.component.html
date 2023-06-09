@@ -1,4 +1,10 @@
-<a href="#" (mouseover)="isHover = true"  (mouseleave)="isHover = false" >
+<a
+  routerLink="{{route}}"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page"
+  (mouseover)="isHover = true"
+  (mouseleave)="isHover = false"
+>
   <span>{{name}}</span>
   <span class="underline" [@dimBox]="isHover ? 'dimmed' : 'notDimmed'"></span>
 </a>

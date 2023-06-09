@@ -1,0 +1,23 @@
+.last-products{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 1rem;
+  padding-top: 2px;
+}
+.title-section {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+
+
+@media (max-width: 1400px) {
+  .last-products{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .last-products{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

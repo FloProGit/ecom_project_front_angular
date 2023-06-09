@@ -3,13 +3,13 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  Input,
+  Input, OnInit,
   QueryList,
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import {ImageCarouselDirective} from "../../coreDirective/image-carousel.directive";
-import {CarouselItemElementDirective} from "../../coreDirective/carousel-item-element.directive";
+import {ImageCarouselDirective} from "../../../coreDirective/image-carousel.directive";
+import {CarouselItemElementDirective} from "../../../coreDirective/carousel-item-element.directive";
 import {animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style} from "@angular/animations";
 @Component({
   selector: 'app-images-carousel',
@@ -17,7 +17,7 @@ import {animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style} fro
   styleUrls: ['./images-carousel.component.css']
 
 })
-export class ImagesCarouselComponent implements AfterViewInit{
+export class ImagesCarouselComponent implements AfterViewInit,OnInit{
   selectedIndex = 0;
   @Input() indicator = true;
   @Input() controls = true;

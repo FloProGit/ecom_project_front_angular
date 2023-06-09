@@ -1,5 +1,13 @@
-<p>home works!</p>
+
 
 <section>
 <app-current-products></app-current-products>
+</section>
+<section>
+  <div class="title-section">
+    <h2>LAST ITEM</h2>
+  </div>
+  <div class="last-products">
+    <app-card-product *ngFor="let product of lastProduct; let i = index" [product]="product" ></app-card-product>
+  </div>
 </section>
