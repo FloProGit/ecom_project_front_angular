@@ -9,7 +9,9 @@ const routes: Routes = [
   {path: '' ,redirectTo :'homepage' ,pathMatch:'full'},
   {path:'auth',loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {path:'Products',loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)},
-  {path:'user',loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
+  {path:'user',loadChildren: () => import('./user/user.module').then(m => m.UserModule),canActivate: [
+      AuthGuard
+    ]},
 ];
 
 @NgModule({

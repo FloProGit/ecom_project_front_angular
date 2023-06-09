@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../../coreInterface/iproduct";
 import {ProductService} from "../../coreService/product.service";
 import {ActivatedRoute} from "@angular/router";
-import {IProductDetail} from "../../coreInterface/IProductDetail";
 import {CartService} from "../../coreService/cart.service";
+import {ProductConverterService} from "../../coreService/converters/product-converter.service";
 
 @Component({
   selector: 'app-product-details',
@@ -14,12 +14,14 @@ export class ProductDetailsComponent implements OnInit {
 
   id!:number;
 
-  product !: IProductDetail;
+  product !: IProduct;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private cartService:CartService) {
+    private cartService:CartService,
+    private converter:ProductConverterService,
+  ) {
 
 
   }
@@ -29,18 +31,17 @@ export class ProductDetailsComponent implements OnInit {
      this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
     });
-    console.log(this.id);
+
 
      this.productService.getProduct(this.id).then((response)=>
      {
-       const resProduct = response.data[0];
-       this.product = {
-         id:resProduct.id,
-         name: resProduct.name,
-         url_link: resProduct.productVariations[0].mediaUrls[0].url_link,
-         quantity: resProduct.quantity,
-         description : resProduct.description
+       console.log(response.data[0]);
+       let result = this.converter.arrayToIproduct(response.data[0]);
+
+       if(!Array.isArray(result)){
+         this.product = result;
        }
+
      }).catch((err)=>{
        console.log(err)
      });

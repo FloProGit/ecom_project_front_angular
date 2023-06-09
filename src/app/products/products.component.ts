@@ -16,6 +16,7 @@ export class ProductsComponent implements AfterViewInit{
 
   ngAfterViewInit() {
      this.productService.getAllProducts().then((response)=>{
+       console.log(response.data)
        this.listOfProducts = response.data;
     }).catch((err)=>{
       console.log(err)

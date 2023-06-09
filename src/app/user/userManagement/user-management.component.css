@@ -1,0 +1,29 @@
+.user-management{
+  display: flex;
+  margin-top: 50px;
+}
+.user-management-form{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.delete-btn
+{
+  display: flex;
+  margin-top: 20px;
+}
+.delete-btn button{
+  background-color: red;
+  border: none;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+}

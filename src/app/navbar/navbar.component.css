@@ -8,6 +8,7 @@ nav {
   background-color: #fafafa;
   box-shadow: inset 0px -1px 0px #c5c5c6;
   max-height: 72px;
+  z-index: 10;
 }
 
 .nav-icon {
@@ -29,13 +30,18 @@ nav {
   align-items: center;
 }
 .nav-authentication .cart-img{
+  padding-top: 10px;
   margin-right: 15px ;
 }
 .nav-authentication .cart-img img{
   padding-top: 4px;
   width: 30px;
 }
-
+.titleApp{
+  font-family: 'Lobster', cursive;
+  font-size: 25px;
+  color: brown;
+}
 .hamburger {
   display: none;
 }
@@ -43,7 +49,7 @@ nav {
 .sign-btns a {
   text-decoration: none;
   color: black;
-  font-family: Roboto Flex, sans-serif;
+  font-family: 'Noto Sans Display', sans-serif;
   font-size: 16px;
   min-width: 90px;
   padding: 10px 10px;
@@ -54,12 +60,26 @@ nav {
   border: none;
 }
 
+User-btns  {
+  margin-top: 100px;
+  color: black;
+  min-width: 90px;
+  cursor: pointer;
+  border: none;
+}
+
+
 .user-toggler {
   display: none;
+}
+.user-profile{
+  padding-top: 10px;
+  padding-right: 10px;
 }
 .user-toggler img {
   width: 30px;
 }
+
 .sign-btns a:nth-child(2) {
   border: none;
   background: rgba(146, 195, 238, 0.72);
@@ -69,12 +89,14 @@ nav {
 .nav-links-container {
   margin: 0 10px;
   font-size: 16px;
+  padding: 0 2rem;
   font-weight: 500;
   text-decoration: none;
   color: #414141;
   display: inline-block;
   position: relative;
   overflow: hidden;
+  font-family: 'Noto Sans Display', sans-serif;
 }
 
 
@@ -83,10 +105,12 @@ nav {
     padding: 15px 20px;
     position: relative;
   }
-
+  .user-profile{
+  display: none;
+  }
   .nav-icon {
     order: 2;
-    margin: 0 auto;
+    margin-left: 10px;
   }
 
   .main-navlinks {
@@ -114,7 +138,6 @@ nav {
     height: 100vh;
     border-right: 1px solid #c5c5c6;
     /*transform: translate(-100%);*/
-    padding: 15px 20px;
   }
   .hamburger {
     width: 20px;

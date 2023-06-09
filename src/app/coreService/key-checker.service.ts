@@ -10,11 +10,14 @@ export class KeyCheckerService {
 
   check(object: object|object[], arrayKeys: string[]):boolean
   {
+
+
     const result = Array.isArray(object);
     let isOk: boolean = true;
     if(result)
     {
       object.forEach((obj)=>{
+
         if(!this.checkObject(obj,arrayKeys))
         {
           isOk = false;

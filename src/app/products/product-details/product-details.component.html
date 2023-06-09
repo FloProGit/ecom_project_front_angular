@@ -5,6 +5,9 @@
   <div class="product-images">
     <img [src]="'https://127.0.0.1:8000/download/images/'+product.url_link" alt="">
   </div>
+  <div >
+    {{product.price_tax_exclude * 1.2 | number: '1.2-2'}} €
+  </div>
   <div class="product-action">
     <button (click)="buy()">Buy</button>
     <button (click)="removeOne()">removeOne</button>

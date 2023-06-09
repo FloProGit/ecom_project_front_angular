@@ -36,6 +36,7 @@ import {TokenService} from "../coreService/token.service";
 
 export class NavbarComponent {
 
+  isResize = false;
 
   constructor( private tokenService:TokenService) {
 
@@ -48,13 +49,20 @@ export class NavbarComponent {
   burgerButtonOpen = 'close';
 
   ngOnInit() {
-    this.burgerButtonOpen = 'open';
+    this.burgerButtonOpen = 'close';
+
+    this.resizeBurger(window.innerWidth) ;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     const w = (event.target as Window).innerWidth;
-    if (w > 500) {
+
+      this.resizeBurger(w) ;
+
+  }
+  resizeBurger(width:number) {
+    if (width > 900) {
       this.burgerButtonOpen = 'open';
     }
   }

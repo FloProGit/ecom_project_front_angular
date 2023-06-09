@@ -5,4 +5,5 @@ export interface IProductDetail {
 
   quantity: number,
   description: string,
+  price_tax_exclude : number
 }

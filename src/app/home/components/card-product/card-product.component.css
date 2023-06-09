@@ -1,6 +1,7 @@
 .card-item {
   align-items: center;
   justify-content: center;
+  max-height: 5rem;
 }
 .card {
   align-items: center;
@@ -17,19 +18,21 @@
   padding: 10px;
   min-width: 100px;
   padding-right: 20px;
-
-
 }
+
+
 .card-image img {
   width: 100%;
   border-radius: 10px;
   border: none ;
-
 }
 
-.card-description a{
+
+.card-title a{
   text-decoration: none;
+  text-overflow: clip;
   color: black;
+  width: 100px;
 }
 .btn {
   display: flex;

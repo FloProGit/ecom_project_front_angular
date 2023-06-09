@@ -17,21 +17,26 @@ export class ProductConverterService {
         "id",
         'name',
         'ext_reference',
-        'productVariations[0].mediaUrls[0].url_link',
+        'mediaUrls[0].url_link',
         'ext_id',
-        'productVariations[0].quantity',
-        'productVariations[0].condition_product.current_condition',
+        'quantity',
+        'condition_product.current_condition',
+        'price_tax_exclude',
+        'product.description'
       ]
 
       const isArray = Array.isArray(array);
+
       if(!this.keyCkecher.check(array,keyNameToSearch))
       {
         return [];
       }
+    console.log(isArray);
 
       if(isArray)
       {
         const data :IProduct[] = array.map((obj)=>{
+
           return this.convertObjectToIProduct(obj);
         });
         return  data;
@@ -48,10 +53,12 @@ export class ProductConverterService {
       id: obj.id,
       name: obj.name,
       ext_reference: obj.ext_reference,
-      url_link: obj.productVariations[0].mediaUrls[0].url_link,
+      url_link: obj.mediaUrls[0].url_link,
       ext_id: obj.ext_id,
-      quantity: obj.productVariations[0].quantity,
-      current_condition: obj.productVariations[0].condition_product.current_condition,
+      quantity: obj.quantity,
+      current_condition: obj.condition_product.current_condition,
+      price_tax_exclude : obj.price_tax_exclude,
+      description : obj.product.description,
     }
   }
 

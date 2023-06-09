@@ -24,7 +24,6 @@ https://127.0.0.1:8000/api/login_check
 
 constructor(private auth:AuthService,private tokenService: TokenService,private router:Router) {
 }
-
   form :ICredential ={
     username: '',
     password: ''
@@ -42,3 +41,5 @@ constructor(private auth:AuthService,private tokenService: TokenService,private 
   }
 
 }
+
+

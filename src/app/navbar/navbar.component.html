@@ -1,7 +1,7 @@
 <nav>
   <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-icon">
     <img src="assets/images/angular-logo.png" alt="logo angular">
-    <span>AnguShop</span>
+    <span class="titleApp" >AnguShop</span>
   </a>
   <div class="main-navlinks">
     <button class="hamburger" (click)="goAnimate()"  type="button">
@@ -17,7 +17,7 @@
     <a routerLink="/cart" class="cart-img">
       <img src="assets/images/shopping-cart.png" alt="user icon">
     </a>
-    <a href="#" class="user-toggler">
+    <a routerLink="/user" class="user-toggler">
       <img src="assets/images/profile.png" alt="user icon">
     </a>
     <div  *ngIf="islogged();then logged ;else Notlogged"> </div>
@@ -29,11 +29,9 @@
 
       </ng-template>
       <ng-template #logged>
-        <div class="sign-btns">
-          <a  routerLink="/user">
-          <img src="assets/images/profile.png" alt="user icon">
+          <a  class="user-profile" routerLink="/user">
+            <img src="assets/images/profile.png" alt="user icon">
           </a>
-        </div>
 
         <div class="sign-btns">
         <a (click)="logout()">Logout</a>

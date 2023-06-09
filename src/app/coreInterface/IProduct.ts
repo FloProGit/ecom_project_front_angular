@@ -6,4 +6,7 @@ export interface IProduct {
   ext_id: number,
   quantity: number,
   current_condition: string,
+  price_tax_exclude:number
+
+  description : string
 }
