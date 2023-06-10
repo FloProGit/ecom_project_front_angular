@@ -1,0 +1,18 @@
+<div class="product-details">
+  <div class="product-images">
+    <label>{{product.name}}</label>
+  </div>
+  <div class="product-images">
+    <img [src]="imageUrl+product.url_link" alt="">
+  </div>
+  <div >
+    {{product.price_tax_exclude * 1.2 | number: '1.2-2'}} €
+  </div>
+  <div class="product-action">
+    <button (click)="buy()">Buy</button>
+    <button (click)="removeOne()">removeOne</button>
+    <button (click)="remove()">remove</button>
+  </div>
+  <div class="product-description"[innerHTML]="product.description">
+  </div>
+</div>

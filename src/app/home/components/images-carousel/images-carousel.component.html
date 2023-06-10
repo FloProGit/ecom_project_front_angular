@@ -1,0 +1,22 @@
+<div class="carousel-container ">
+  <div class="carousel-item-container" #carousel>
+    <div *ngFor="let image of urlImage; let i = index" class="carousel-item">
+      <ng-container [ngTemplateOutlet]="image.tpl"></ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="indicator" class="carousel-dot-container">
+    <span *ngFor="let dot of arrayOfCarousel; let i=index"
+          class="dot"
+          [ngClass]="{'active':selectedIndex === i}"
+          (click)="selectImage(i)"
+    >
+    </span>
+  </div>
+  <button *ngIf="controls " class="btn-carousel btn-prev" (click)="onPrevClick()">
+    <i class="dot"></i>
+  </button>
+  <button *ngIf="controls " class="btn-carousel btn-next" (click)="onNextClick()">
+    <i class="dot"></i>
+  </button>
+</div>

@@ -1,0 +1,62 @@
+<div class="cart">
+  <H1>Your Cart</H1>
+  <div class="cart-container">
+    <div class="card-product-list">
+    <table>
+      <thead>
+      <tr>
+        <th>Item</th>
+        <th ></th>
+        <th></th>
+        <th>price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="cart-item" *ngFor="let product of CartProducts; let i = index">
+        <td >
+          <div class="cart-item-img">
+          <img [src]="imageUrl+product.product.url_link" alt="">
+        </div>
+        </td>
+        <td class="card-product-label">
+            <p>{{product.product.name}}</p>
+        </td>
+        <td>
+          <div class="cart-item-qty">
+            <button (click)="addItem(product.product.id,i)">+</button>
+            <span class="item-qty">{{product.quantity}}</span>
+            <button (click)="removeOne(product.product.id,i)">-</button>
+          </div>
+        </td>
+        <td>
+          <div class="card-item-price">
+            <label>{{product.product.price_tax_exclude * product.quantity| number: '1.2-2'}} €</label>
+          </div>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+</div>
+
+    <div class="cart-resume">
+      <div class="card-price">
+        <table>
+          <tbody>
+          <tr>
+            <td>HT:</td>
+            <td>{{totalPriceCart| number: '1.2-2'}} €</td>
+          </tr>
+          <tr>
+            <td>TTC:</td>
+            <td>{{totalPriceCart*1.2| number: '1.2-2'}} €</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btns">
+        <button (click)="command()">command</button>
+      </div>
+    </div>
+  </div>
+</div>
