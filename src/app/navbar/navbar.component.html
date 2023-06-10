@@ -14,7 +14,7 @@
       </div>
   </div>
   <div class="nav-authentication">
-    <a routerLink="/cart" class="cart-img">
+    <a routerLink="/cart" class="cart-img" *ngIf="islogged()">
       <img src="assets/images/shopping-cart.png" alt="user icon">
     </a>
     <a routerLink="/user" class="user-toggler">

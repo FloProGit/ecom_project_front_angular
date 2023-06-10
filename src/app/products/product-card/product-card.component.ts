@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../../coreInterface/iproduct";
 import {CartService} from "../../coreService/cart.service";
+import {environment} from "../../Environement/UrlApi";
 
 @Component({
   selector: 'app-product-card',
@@ -14,7 +15,7 @@ export class ProductCardComponent implements OnInit{
   constructor(private cartService:CartService) {
   }
   ngOnInit() {
-    this.image ="https://127.0.0.1:8000/download/images/"+this.product.url_link
+    this.image =environment.imageUrl+this.product.url_link
   }
 
   addItem(id:number){

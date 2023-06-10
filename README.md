@@ -1,5 +1,25 @@
 # FrontEcom
 
+C'est un projet de monter en competence sur le fonctionnement de 
+Angular et non un projet fini ou presentable l'objectif etait de
+le mettre en relation avec une api rest sur le projet back.
+
+Donc il manque enormement de chose tels que le referencement naturel 
+ou SEO il n'y a pas de feed-back lors des actions et le css et limité 
+
+
+
+
+Instalation
+
+```bash
+npm install
+```
+
+pour la connection avec l'api il faut aller dans app/Environement et changé l'URL source 
+et image pour avoir les données par default il est relié sur mon server back distant et non local
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
 
 ## Development server

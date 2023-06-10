@@ -4,6 +4,7 @@ import {ProductService} from "../../coreService/product.service";
 import {ActivatedRoute} from "@angular/router";
 import {CartService} from "../../coreService/cart.service";
 import {ProductConverterService} from "../../coreService/converters/product-converter.service";
+import {environment} from "../../Environement/UrlApi";
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   id!:number;
 
   product !: IProduct;
-
+  imageUrl = environment.imageUrl;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,

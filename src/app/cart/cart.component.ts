@@ -5,6 +5,7 @@ import {IProductDetail} from "../coreInterface/IProductDetail";
 import {ProductConverterService} from "../coreService/converters/product-converter.service";
 import {IProduct} from "../coreInterface/iproduct";
 import {OrderService} from "../coreService/order.service";
+import {environment} from "../Environement/UrlApi";
 
 type CartProduct={
   product : IProduct;
@@ -28,7 +29,7 @@ export class CartComponent implements OnInit,AfterViewInit{
 
     ) {
   }
-
+  imageUrl = environment.imageUrl;
   CartProducts : CartProduct[] = [];
   totalPriceCart :number= 0;
   ngOnInit() {

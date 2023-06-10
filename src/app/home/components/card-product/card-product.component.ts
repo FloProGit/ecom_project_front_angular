@@ -1,6 +1,6 @@
 import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {IProduct} from "../../../coreInterface/iproduct";
-
+import {environment} from "../../../Environement/UrlApi";
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
@@ -15,7 +15,7 @@ export class CardProductComponent implements OnInit{
 ngOnInit() {
   this.resizeString(window.innerWidth) ;
 }
-
+  imageUrl = environment.imageUrl;
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     const w = (event.target as Window).innerWidth;

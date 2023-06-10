@@ -3,7 +3,7 @@
     <label>{{product.name}}</label>
   </div>
   <div class="product-images">
-    <img [src]="'https://127.0.0.1:8000/download/images/'+product.url_link" alt="">
+    <img [src]="imageUrl+product.url_link" alt="">
   </div>
   <div >
     {{product.price_tax_exclude * 1.2 | number: '1.2-2'}} €

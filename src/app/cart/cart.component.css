@@ -7,7 +7,7 @@ h1 {
 }
 .cart-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 10px;
   width: 70%;
 }
@@ -69,7 +69,9 @@ h1 {
 .cart-item-qty button:nth-child(3){
   border-left: 1px solid black;
 }
-
+.cart-resume{
+  margin-left: auto;
+}
 
 @media (max-width: 1024px) {
 

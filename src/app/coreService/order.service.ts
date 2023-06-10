@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import axios, {AxiosResponse} from "axios";
 import {CartService} from "./cart.service";
 import {TokenService} from "./token.service";
+import {environment} from "../Environement/UrlApi";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-
   constructor(private cartService:CartService,
-              private tokenService:TokenService) { }
+              private tokenService:TokenService) {
+    axios.defaults.baseURL = environment.SourceUrl;
+
+  }
 
 
 
@@ -28,7 +31,7 @@ export class OrderService {
         cart: cart,
         token : this.tokenService.getToken()
     }
-    console.log(data);
+
     return await axios.post(url,data,config);
   }
 

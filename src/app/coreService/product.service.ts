@@ -3,13 +3,14 @@ import axios, {AxiosResponse} from "axios";
 import {IToken} from "../coreInterface/IToken";
 import {IProduct} from "../coreInterface/iproduct";
 import {ICart} from "../coreInterface/icart";
+import {environment} from "../Environement/UrlApi";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   constructor() {
-    axios.defaults.baseURL = 'https://127.0.0.1:8000';
+    axios.defaults.baseURL = environment.SourceUrl;
     axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
   }
 
